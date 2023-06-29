@@ -1,0 +1,25 @@
+Visualization of copy number variants (CNVs) from exome sequencing data
+
+Requirements: Python 3.6, pysam, numpy, matplotlib
+
+Run "python3 copy_ratio_plot.py -h" for full usage info.
+
+Required arguments:
+
+1) data: a tabix matrix containing copy number data for each sample in the following format:
+
+#CONTIG	START	END	sample1	sample2	...
+chr1	100000	101000	2.0	2.1	...
+chr1	102000	104000	1.8	1.9	...
+...
+
+2) chrom: the chromosome (CONTIG) for which data should be plotted
+
+Optional arguments consisting of additional input files:
+
+1) --functional_annotations, -f: a .tsv file of the following format:
+
+CONTIG	START	END	GC_CONTENT	MAPPABILITY	SEGMENTAL_DUPLICATION_CONTENT
+chr1	200000	201000	0.53	0.99	0
+chr1	210000	213000	0.68	1	0.17
+...
